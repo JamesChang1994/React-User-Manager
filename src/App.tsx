@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import LeftAside from './components/LeftAside';
+import MainContent from './components/MainContent';
+import './style/app.scss';
 
 function App() {
+  const profileImage = 'https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png';
+  const sprites = ['male', 'female', 'human', 'identicon', 'initials', 'bottts', 'avataaars', 'jdenticon', 'gridy', 'micah']
+  const [user, setUser] = useState({});
+  const [allUsers, setAllUsers] = useState([]);
+
+
+  const setUserSeed = (userData: object) => {
+    setUser(userData)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <div className='main-wrapper'>
+        <LeftAside sprites={sprites} profileImage={profileImage} setAppSeed={setUserSeed} />
+        <MainContent user={user} setAllUsers={setAllUsers} allUsers={allUsers} />
+      </div>
     </div>
   );
 }

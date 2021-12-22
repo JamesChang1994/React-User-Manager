@@ -1,0 +1,8 @@
+@import 'variables.scss';
+
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    height: calc(100vh - 100px);
+    background-color: $color-canvas-inset !important;
+}
